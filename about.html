@@ -1,41 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>About - Anda Blog</title>
+  <title>About Me — Anda's Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- pixel font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
     body {
-      background: #0a0a0a;
-      color: white;
-      font-family: monospace;
-      padding: 40px;
+      background-color: #111;
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      padding: 30px;
       opacity: 0;
       transition: opacity 0.35s ease-in-out;
     }
 
-    body.fade-in { opacity: 1; }
-    body.fade-out { opacity: 0; }
+    body.fade-in {
+      opacity: 1;
+    }
 
-    a {
-      color: #00ffff;
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .post-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      padding: 25px;
+      border: 4px solid #fff;
+      box-shadow: 8px 8px 0 #000;
+    }
+
+    h1 {
+      font-size: 18px;
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 11px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      color: #00fff0;
       text-decoration: none;
+      border: 2px solid #00fff0;
+      padding: 8px 14px;
+    }
+
+    .back-home:hover {
+      text-shadow: 0 0 6px #00ffcc;
     }
   </style>
 </head>
 
 <body>
 
-<h1>👋 About Me</h1>
-<p>Hi, I'm Anda. I like coding, Roblox, and building cool stuff.</p>
+<div class="post-container">
+  <h1>ABOUT ME </h1>
 
-<p><a href="index.html">← Back Home</a></p>
+  <p>
+    Yo! I'm Anda — a beginner web developer and gamer.
+  </p>
+
+  <p>
+    Right now I'm learning how to build my own website from zero knowledge.
+    This blog is where I document my journey.
+  </p>
+
+  <p>
+    I like Roblox, coding, and creating cool pixel-style stuff.
+    More upgrades coming soon !!!
+  </p>
+
+  <a href="index.html" class="back-home">← BACK HOME</a>
+</div>
 
 <script>
+// fade in
 window.addEventListener("load", () => {
   document.body.classList.add("fade-in");
 });
 
+// fade out on navigation
 document.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", function(e) {
     const href = this.getAttribute("href");
