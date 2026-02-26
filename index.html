@@ -191,6 +191,18 @@
     margin-left: auto;
   }
 }
+body {
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+body.fade-out {
+  opacity: 0;
+}
 }
     </style>
 </head>
@@ -198,9 +210,9 @@
 <body>
 
     <div class="navbar">
-        <a href="#">HOME</a>
-        <a href="#">ABOUT</a>
-        <a href="#">GAMES</a>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="games.html">GAMES</a>
         <div class="menu-toggle" onclick="toggleMenu()">
   ☰
 </div>
@@ -225,5 +237,32 @@
 function toggleMenu() {
   document.querySelector(".navbar").classList.toggle("active");
 }
-</script></body>
+</script>
+<script>
+// fade in when page loads
+window.addEventListener("load", () => {
+  document.body.classList.add("fade-in");
+});
+
+// fade out when clicking links
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    const href = this.getAttribute("href");
+
+    // ignore empty or external links
+    if (!href || href.startsWith("#") || href.startsWith("http")) return;
+
+    e.preventDefault();
+    document.body.classList.remove("fade-in");
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 300);
+  });
+});
+</script>
+
+</script>
+</body>
 </html>
