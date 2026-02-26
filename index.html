@@ -94,40 +94,74 @@
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 #000;
 }
-        /* 📱 MOBILE FIXES */
+/* 📱 MOBILE FIXES */
 @media (max-width: 600px) {
 
-    .container {
-        padding: 16px;
-    }
+  .container {
+    padding: 16px;
+  }
 
-    h1 {
-        font-size: 14px;
-    }
+  h1 { font-size: 14px; }
+  h2 { font-size: 11px; }
+  p  { font-size: 9px; line-height: 1.5; }
 
-    h2 {
-        font-size: 11px;
-    }
+  .post {
+    padding: 14px;
+    box-shadow: 4px 4px 0 #000;
+  }
 
-    p {
-        font-size: 9px;
-        line-height: 1.5;
-    }
+  .navbar {
+    padding: 14px;
+    gap: 10px;
+  }
 
-    .post {
-        padding: 14px;
-        box-shadow: 4px 4px 0 #000;
-    }
+  .navbar a {
+    font-size: 9px;
+  }
+}
 
-    .navbar {
-        padding: 14px;
-        gap: 10px;
-    }
+/* hamburger system */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #00ffff;
+  cursor: pointer;
+}
 
-    .navbar a {
-        font-size: 9px;
-    }
-    /* ===== NEON GLOW UPGRADE ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar a {
+    display: none;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .navbar.active a {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+}
+body {
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+/* 🌈 Animated gradient background */
+
 
 .blog-title {
   text-shadow:
@@ -162,36 +196,19 @@
     0 0 24px #00fff0;
   transform: scale(1.05);
 }
-/* hamburger hidden on desktop */
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  color: #00ffff;
-  cursor: pointer;
-}
-
-/* mobile layout */
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
-  }
-
-  .navbar a {
-    display: none;
-    width: 100%;
-    padding: 10px 0;
-  }
-
-  .navbar.active a {
-    display: block;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
-}
 body {
+  margin: 0;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+
+  /* animated gradient */
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a1a2e);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+
+  min-height: 100vh;
+
+  /* fade system */
   opacity: 0;
   transition: opacity 0.35s ease-in-out;
 }
@@ -203,21 +220,12 @@ body.fade-in {
 body.fade-out {
   opacity: 0;
 }
-/* 🌈 Animated gradient background */
-body {
-    font-family: Arial;
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a1a2e);
-  background-size: 400% 400%;
-  animation: gradientMove 12s ease infinite;
-  min-height: 100vh;
-}
 
 /* animation keyframes */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
 }
     </style>
 </head>
@@ -275,9 +283,6 @@ document.querySelectorAll("a").forEach(link => {
       window.location.href = href;
     }, 300);
   });
-});
-</script>
-
-</script>
+});</script>
 </body>
 </html>
